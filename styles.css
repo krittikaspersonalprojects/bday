@@ -59,17 +59,17 @@ h1, h2, p { margin-top: 0; }
 .heart-two { top: 113px; right: 15%; color: #b69a57; font-size: 19px; }
 .heart-three { right: 22%; bottom: 64px; font-size: 24px; transform: rotate(12deg); }
 .cake { position: relative; width: 240px; height: 240px; margin-top: 38px; }
-.cake-plate { position: absolute; bottom: 5px; left: 1px; width: 238px; height: 17px; border: 2px solid #83b9ba; border-radius: 50%; background: #d8ece8; }
-.cake-bottom { position: absolute; bottom: 20px; left: 24px; width: 192px; height: 76px; border: 2px solid #51979c; border-radius: 7px 7px 13px 13px; background: #8ec7c3; }
-.cake-bottom::after { position: absolute; inset: 10px 0; background: radial-gradient(circle, #eff9f5 0 2px, transparent 2.7px) 2px 0/24px 24px; content: ""; opacity: .8; }
-.cake-middle { position: absolute; z-index: 1; bottom: 89px; left: 32px; width: 176px; height: 53px; border: 2px solid #5b9da0; border-radius: 7px; background: #c4e3df; }
-.cake-middle::before { position: absolute; top: 10px; left: 0; width: 100%; height: 8px; background: repeating-linear-gradient(90deg, #fff8f0 0 12px, transparent 12px 24px); content: ""; }
-.icing-drip { position: absolute; top: 18px; width: 9px; height: 16px; border-radius: 0 0 8px 8px; background: #fff8f0; }
-.drip-one { left: 37px; }.drip-two { left: 94px; height: 22px; }.drip-three { right: 28px; }
-.cake-top { position: absolute; z-index: 2; bottom: 137px; left: 45px; display: flex; width: 150px; height: 32px; align-items: center; justify-content: space-evenly; border: 2px solid #5b9da0; border-radius: 50%; background: #f0f8f3; }
-.cake-top span { width: 9px; height: 9px; border-radius: 50%; background: #62aeb0; }
-.cake-top span:nth-child(2) { background: #d2b560; }.cake-top span:nth-child(3) { background: #759f91; }
-.candle { position: absolute; z-index: 3; bottom: 160px; left: 113px; width: 13px; height: 39px; border-radius: 3px; background: repeating-linear-gradient(135deg, #4f9fa4 0 5px, #eff8f3 5px 10px); }
+.cake-plate { position: absolute; bottom: 5px; left: 1px; width: 238px; height: 17px; border: 2px solid #cbbba5; border-radius: 50%; background: linear-gradient(#fffdf7, #e8dfd0); box-shadow: 0 3px 5px rgba(89, 68, 46, .08); }
+.cake-bottom { position: absolute; bottom: 20px; left: 24px; width: 192px; height: 91px; border: 2px solid #42221f; border-radius: 8px 8px 14px 14px; background: linear-gradient(90deg, #512622 0%, #71342b 13%, #854033 48%, #71342b 84%, #49231f 100%); box-shadow: inset 0 8px 8px rgba(255, 222, 188, .1), inset 0 -9px 10px rgba(28, 12, 12, .3), 0 5px 8px rgba(69, 37, 30, .18); }
+.cake-bottom::after { position: absolute; inset: 25px 1px 9px; background: repeating-linear-gradient(to bottom, transparent 0 16px, #fff4e5 17px 21px, transparent 22px 29px); content: ""; }
+.cake-middle { position: absolute; z-index: 1; bottom: 78px; left: 24px; width: 192px; height: 61px; border: 0; border-radius: 50% 50% 8px 8px / 17px 17px 8px 8px; background: linear-gradient(to bottom, #fffdf8 0 17px, transparent 17px); }
+.cake-middle::before { position: absolute; top: 0; left: 0; width: 100%; height: 28px; border: 2px solid #eadfd1; border-bottom: 0; border-radius: 50% 50% 0 0 / 18px 18px 0 0; background: linear-gradient(180deg, #fffefa, #f6eee3); content: ""; }
+.icing-drip { position: absolute; z-index: 1; top: 18px; width: 13px; height: 15px; border-radius: 0 0 9px 9px; background: linear-gradient(90deg, #eadfd1, #fffaf2 35%, #f3e9db); }
+.drip-one { left: 42px; height: 20px; }.drip-two { left: 96px; height: 28px; }.drip-three { right: 35px; height: 17px; }
+.cake-top { position: absolute; z-index: 2; bottom: 128px; left: 31px; display: flex; width: 178px; height: 36px; align-items: center; justify-content: space-evenly; border: 2px solid #e3d4c2; border-radius: 50%; background: radial-gradient(ellipse at 50% 28%, #fffefa 0 48%, #f5ebdf 83%, #dfd0bb 100%); box-shadow: 0 3px 4px rgba(77, 48, 36, .14); }
+.cake-top span { width: 12px; height: 12px; border: 1px solid #a62632; border-radius: 50%; background: radial-gradient(circle at 35% 27%, #ffaaa0 0 12%, #dd3c49 48%, #9d1f2c 100%); box-shadow: 0 1px 2px rgba(77, 30, 30, .3); }
+.cake-top span:nth-child(2) { background: radial-gradient(circle at 35% 27%, #ffaaa0 0 12%, #dd3c49 48%, #9d1f2c 100%); }.cake-top span:nth-child(3) { background: radial-gradient(circle at 35% 27%, #ffaaa0 0 12%, #dd3c49 48%, #9d1f2c 100%); }
+.candle { position: absolute; z-index: 3; bottom: 153px; left: 113px; width: 13px; height: 39px; border: 1px solid #e0b7a0; border-radius: 3px; background: repeating-linear-gradient(135deg, #c87861 0 5px, #fff5e8 5px 10px); box-shadow: 1px 2px 3px rgba(93, 57, 41, .15); }
 .candle i { position: absolute; top: -15px; left: 2px; width: 9px; height: 14px; border-radius: 80% 10% 70% 40%; background: #edbc62; transform: rotate(8deg); }
 .cake-caption { position: absolute; bottom: 5px; left: 50%; color: #a89588; font-family: var(--serif); font-size: 12px; font-style: italic; transform: translateX(-50%); white-space: nowrap; }
 .site-footer { display: flex; justify-content: space-between; padding: 17px 0 20px; border-top: 1px solid rgba(52, 94, 99, .12); color: #789297; font-size: 10px; letter-spacing: .4px; }
