@@ -85,13 +85,16 @@ h1, h2, p { margin-top: 0; }
 .balloon { position: relative; width: 76px; height: 95px; padding: 0; border: 0; background: transparent; cursor: pointer; transition: transform .2s ease; }
 .balloon:hover { transform: translateY(-6px) rotate(3deg); }
 .balloon:focus-visible, .envelope-button:focus-visible, .button:focus-visible, .text-link:focus-visible { outline: 3px solid #287c84; outline-offset: 5px; }
-.balloon::before { position: absolute; top: 0; left: 4px; width: 68px; height: 79px; border: 1px solid rgba(36, 82, 91, .25); border-radius: 52% 48% 49% 51% / 43% 43% 57% 57%; background: var(--balloon-color); box-shadow: inset -10px -8px 0 rgba(28, 90, 101, .09), inset 10px 8px 0 rgba(255,255,255,.34), 0 6px 12px rgba(41, 81, 87, .14); content: ""; }
-.balloon::after { position: absolute; top: 15px; left: 17px; width: 10px; height: 23px; border-radius: 50%; background: rgba(255,255,255,.43); content: ""; transform: rotate(25deg); }
+.balloon::before { position: absolute; top: 0; left: 4px; width: 68px; height: 79px; border: 1px solid rgba(36, 82, 91, .25); border-radius: 52% 48% 49% 51% / 43% 43% 57% 57%; background: var(--balloon-color); box-shadow: inset -10px -8px 0 rgba(28, 90, 101, .09), inset 10px 8px 0 rgba(255,255,255,.34), 0 6px 12px rgba(41, 81, 87, .14); content: ""; transition: top .3s ease, left .3s ease, width .3s ease, height .3s ease, clip-path .3s ease, border-radius .3s ease, box-shadow .3s ease; }
+.balloon::after { position: absolute; top: 15px; left: 17px; width: 10px; height: 23px; border-radius: 50%; background: rgba(255,255,255,.43); content: ""; transform: rotate(25deg); transition: top .3s ease, left .3s ease, width .3s ease, height .3s ease, background .3s ease, transform .3s ease; }
 .balloon-number { position: absolute; z-index: 1; top: 30px; left: 0; width: 100%; color: #24444c; font-family: var(--serif); font-size: 15px; font-weight: 600; text-shadow: 0 1px 1px rgba(255,255,255,.5); }
 .balloon-knot { position: absolute; z-index: 1; top: 77px; left: 34px; width: 9px; height: 8px; background: var(--balloon-color); clip-path: polygon(0 0, 100% 0, 50% 100%); }
 .balloon-string { position: absolute; top: 84px; left: 38px; height: 12px; border-left: 1px solid #91adae; }
-.balloon.is-popped::before { box-shadow: inset -10px -8px 0 rgba(28, 90, 101, .11), inset 10px 8px 0 rgba(255,255,255,.26), 0 0 0 3px rgba(251,252,249,.95), 0 0 0 5px var(--balloon-color); }
-.balloon.is-popped .balloon-number { font-weight: 700; }
+.balloon.is-popped::before { top: 37px; left: 21px; width: 36px; height: 27px; border: 1px solid rgba(36, 82, 91, .45); border-radius: 0; clip-path: polygon(8% 17%, 27% 0, 43% 20%, 63% 2%, 77% 21%, 100% 12%, 83% 44%, 98% 62%, 72% 66%, 62% 100%, 43% 75%, 22% 96%, 27% 66%, 0 54%, 22% 39%); background: linear-gradient(145deg, rgba(255,255,255,.52), transparent 35%), linear-gradient(35deg, var(--balloon-color) 20%, #398f91 100%); box-shadow: inset 3px 2px 3px rgba(255,255,255,.38), inset -4px -3px 4px rgba(25, 82, 91, .3), 0 2px 3px rgba(41, 81, 87, .15); }
+.balloon.is-popped::after { top: 43px; left: 32px; width: 15px; height: 7px; border-radius: 50%; background: linear-gradient(160deg, rgba(255,255,255,.65), rgba(31,83,91,.38)); transform: rotate(-24deg); }
+.balloon.is-popped .balloon-number { opacity: 0; }
+.balloon.is-popped .balloon-knot { top: 61px; left: 34px; }
+.balloon.is-popped .balloon-string { top: 68px; left: 38px; height: 28px; }
 .balloon-pink { --balloon-color: #72d0c4; }.balloon-coral { --balloon-color: #43b9ae; }.balloon-yellow { --balloon-color: #8bd9c5; }.balloon-blue { --balloon-color: #5bc4bf; }.balloon-lilac { --balloon-color: #8acfc7; }.balloon-sage { --balloon-color: #64bfae; }.balloon-peach { --balloon-color: #9cddd2; }
 .reasons-section { max-width: 740px; margin: 0 auto; }
 .reasons-heading { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
