@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fbfcf9" />
+    <title>A Walk Down Memory Lane — A Birthday Surprise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="wordmark" href="index.html" aria-label="Birthday home">for my love <span>♡</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Birthday</a>
+          <a href="balloons.html">21 reasons</a>
+          <a href="songs.html">Our songs</a>
+          <a href="letter.html">A letter</a>
+          <a class="active" href="memories.html">Memory lane</a>
+        </nav>
+      </header>
+
+      <main class="content-page memory-page">
+        <div class="page-heading">
+          <p class="eyebrow">little moments, forever ours</p>
+          <h1>A Walk Down Memory Lane</h1>
+          <p class="page-intro">Scroll slowly and take a little walk through some of our favorite days.</p>
+        </div>
+        <section class="memory-road" id="memory-road" aria-label="Eight memories along a winding road">
+          <svg class="memory-road-art" id="memory-road-art" viewBox="0 0 1000 2100" preserveAspectRatio="none" aria-hidden="true">
+            <path class="road-shadow" d="M500 20 C500 90 800 65 800 150 S200 325 200 410 S800 585 800 670 S200 845 200 930 S800 1105 800 1190 S200 1365 200 1450 S800 1625 800 1710 S200 1885 200 1970" />
+            <path class="road-surface" id="memory-road-path" d="M500 20 C500 90 800 65 800 150 S200 325 200 410 S800 585 800 670 S200 845 200 930 S800 1105 800 1190 S200 1365 200 1450 S800 1625 800 1710 S200 1885 200 1970" />
+            <path class="road-centerline" d="M500 20 C500 90 800 65 800 150 S200 325 200 410 S800 585 800 670 S200 845 200 930 S800 1105 800 1190 S200 1365 200 1450 S800 1625 800 1710 S200 1885 200 1970" />
+            <circle class="traveler-ball" id="traveler-ball" cx="500" cy="20" r="20" />
+            <circle class="traveler-highlight" id="traveler-highlight" cx="500" cy="20" r="7" />
+          </svg>
+          <div class="memory-stops" id="memory-stops"></div>
+        </section>
+        <p class="memory-ending">here’s to many more memorable days hehe</p>
+      </main>
+      <footer class="site-footer"><span>made for you, with all my love</span><span>✿</span></footer>
+    </div>
+  </body>
+</html>

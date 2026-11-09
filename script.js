@@ -22,6 +22,17 @@ const reasons = [
   "I love that you always want to stay, this really matters to me, thank you so much",
 ];
 
+const memoryMoments = [
+  { date: "[Date 1]", description: "[Write what happened on this day.]" },
+  { date: "[Date 2]", description: "[Write what happened on this day.]" },
+  { date: "[Date 3]", description: "[Write what happened on this day.]" },
+  { date: "[Date 4]", description: "[Write what happened on this day.]" },
+  { date: "[Date 5]", description: "[Write what happened on this day.]" },
+  { date: "[Date 6]", description: "[Write what happened on this day.]" },
+  { date: "[Date 7]", description: "[Write what happened on this day.]" },
+  { date: "[Date 8]", description: "[Write what happened on this day.]" },
+];
+
 const garden = document.querySelector("#balloon-garden");
 if (garden) {
   const reasonList = document.querySelector("#reasons-list");
@@ -68,4 +79,115 @@ if (letterDialog && openLetter && closeLetter) {
   letterDialog.addEventListener("click", (event) => {
     if (event.target === letterDialog) letterDialog.close();
   });
+}
+
+const memoryRoad = document.querySelector("#memory-road");
+if (memoryRoad) {
+  const roadArt = document.querySelector("#memory-road-art");
+  const roadPath = document.querySelector("#memory-road-path");
+  const traveler = document.querySelector("#traveler-ball");
+  const travelerHighlight = document.querySelector("#traveler-highlight");
+  const stopsContainer = document.querySelector("#memory-stops");
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  window.scrollTo(0, 0);
+  const checkpoints = [
+    { x: 800, y: 150 },
+    { x: 200, y: 410 },
+    { x: 800, y: 670 },
+    { x: 200, y: 930 },
+    { x: 800, y: 1190 },
+    { x: 200, y: 1450 },
+    { x: 800, y: 1710 },
+    { x: 200, y: 1970 },
+  ];
+
+  memoryMoments.forEach((moment, index) => {
+    const stop = document.createElement("article");
+    stop.className = "memory-stop";
+    stop.innerHTML = `<div class="memory-card"><span class="memory-card-number">memory ${String(index + 1).padStart(2, "0")}</span><h2 class="memory-date"></h2><p class="memory-description"></p></div>`;
+    stop.querySelector(".memory-date").textContent = moment.date;
+    stop.querySelector(".memory-description").textContent = moment.description;
+    stop.setAttribute("aria-label", `Memory ${index + 1}: ${moment.date}`);
+    stopsContainer.append(stop);
+  });
+
+  const pathLength = roadPath.getTotalLength();
+  const pointsOnPath = checkpoints.map((checkpoint) => {
+    let nearestLength = 0;
+    let nearestDistance = Infinity;
+    const samples = 1000;
+
+    for (let sample = 0; sample <= samples; sample += 1) {
+      const length = pathLength * sample / samples;
+      const point = roadPath.getPointAtLength(length);
+      const distance = Math.hypot(point.x - checkpoint.x, point.y - checkpoint.y);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestLength = length;
+      }
+    }
+
+    return nearestLength;
+  });
+
+  let scheduledFrame = false;
+  let currentDistance = 0;
+  let lastFrameTime = null;
+  const updateMemoryWalk = (frameTime) => {
+    const roadBounds = roadArt.getBoundingClientRect();
+    const roadDocumentBottom = roadBounds.bottom + window.scrollY;
+    const travelDistance = Math.max(1, roadDocumentBottom - window.innerHeight);
+    const progress = Math.max(0, Math.min(1, window.scrollY / travelDistance));
+    const targetDistance = pathLength * progress;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const elapsed = lastFrameTime === null ? 16 : Math.min(frameTime - lastFrameTime, 64);
+    lastFrameTime = frameTime;
+
+    if (currentDistance === null || prefersReducedMotion) {
+      currentDistance = targetDistance;
+    } else {
+      const easing = 1 - Math.exp(-elapsed / 110);
+      currentDistance += (targetDistance - currentDistance) * easing;
+      if (Math.abs(targetDistance - currentDistance) < 0.5) {
+        currentDistance = targetDistance;
+      }
+    }
+
+    const distance = currentDistance;
+    const point = roadPath.getPointAtLength(distance);
+
+    traveler.setAttribute("cx", String(point.x));
+    traveler.setAttribute("cy", String(point.y));
+    travelerHighlight.setAttribute("cx", String(point.x - 5));
+    travelerHighlight.setAttribute("cy", String(point.y - 6));
+
+    pointsOnPath.forEach((checkpointLength, index) => {
+      if (distance >= checkpointLength) {
+        stopsContainer.children[index].classList.add("is-revealed");
+      }
+    });
+
+    if (!prefersReducedMotion && Math.abs(targetDistance - currentDistance) >= 0.5) {
+      window.requestAnimationFrame(updateMemoryWalk);
+    } else {
+      scheduledFrame = false;
+      lastFrameTime = null;
+    }
+  };
+
+  const requestMemoryWalkUpdate = () => {
+    if (!scheduledFrame) {
+      scheduledFrame = true;
+      window.requestAnimationFrame((frameTime) => {
+        lastFrameTime = frameTime;
+        updateMemoryWalk(frameTime);
+      });
+    }
+  };
+
+  window.addEventListener("scroll", requestMemoryWalkUpdate, { passive: true });
+  window.addEventListener("resize", requestMemoryWalkUpdate);
+  requestMemoryWalkUpdate();
 }
