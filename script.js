@@ -23,14 +23,14 @@ const reasons = [
 ];
 
 const memoryMoments = [
-  { date: "[Date 1]", description: "[Write what happened on this day.]" },
-  { date: "[Date 2]", description: "[Write what happened on this day.]" },
-  { date: "[Date 3]", description: "[Write what happened on this day.]" },
-  { date: "[Date 4]", description: "[Write what happened on this day.]" },
-  { date: "[Date 5]", description: "[Write what happened on this day.]" },
-  { date: "[Date 6]", description: "[Write what happened on this day.]" },
-  { date: "[Date 7]", description: "[Write what happened on this day.]" },
-  { date: "[Date 8]", description: "[Write what happened on this day.]" },
+  { date: "27th May, 2026", description: "I bullied you into confessing your feelings lmfao." },
+  { date: "20th June, 2026", description: "I crashed out and gave away that I liked you, it's really funny now that I think of it hehehe. Crashing out will always be my weakness ig lmfao." },
+  { date: "5th August, 2026", description: "We FINALLY met after more than two months. Loved going to STORY and Dominos with you. Favourite part was being so close to you all the time and holding your hands for the first timeee yayy." },
+  { date: "6th August, 2026", description: "We KISSEDDDD ahahahhaha best thing ever istgg, the moment was so perfect- you were explaining how much you love me and then the kiss (cinematic hehe)" },
+  { date: "26th August, 2026", description: "First movie date and you proposeddd, best day of my life and I am not even exaggerating. No more what are we? questions lmfaoo" },
+  { date: "9th October, 2026", description: "First date :)) I love how you always feed me something tor plate se, sweetest gesture ever." },
+  { date: "14th October, 2026", description: "Wellll, no LIIT ever again lmfao but this day was really fun, we look SO happy in the photos haha. First ever sc + photobooth date :3" },
+  { date: "12th November, 2026", description: "It's your birthdayyy, of course it will be special to me!! I wish I am there to celebrate all your birthdays, right next to you. I love you so much." },
 ];
 
 const garden = document.querySelector("#balloon-garden");
