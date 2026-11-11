@@ -1,7 +1,7 @@
 const reasons = [
   "I love the way you smile when you ragebait me.",
   "I love how you always make me laugh. Funny toh hai yaar tu (I'm funnier)",
-  "I love the way you look at me when I act childish, special mention to lab's rotating chair.",
+  "I love the way you look at me when I act childish, special mention to lab's rotating chair lmfao.",
   "I love how you support me through everything.",
   "I love the way you make even ordinary moments special. Your presence makes everything the best",
   "I love how you can make me smile even on my worst days, special mention to ppi rejection smh.",
